@@ -8,7 +8,7 @@ CREATE TABLE tasks(
     task_id SERIAL PRIMARY KEY ,
     title VARCHAR(100) NOT NULL ,
     description VARCHAR(200) NOT NULL ,
-    due_date TIMESTAMP NOT NULL ,
+    due_date DATE NOT NULL ,
     priority VARCHAR(50) NOT NULL,
     project_id INT,
     CONSTRAINT fk_project FOREIGN KEY (project_id) REFERENCES project(project_id) ON DELETE CASCADE ON UPDATE CASCADE

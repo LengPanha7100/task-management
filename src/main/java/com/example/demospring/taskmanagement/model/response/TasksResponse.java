@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -18,8 +19,7 @@ public class TasksResponse {
     private String title;
     private String description;
     private EPriority priority;
-    @JsonFormat(pattern="yyyy-MM-dd")
-    private LocalDateTime dueDate;
+    private LocalDate dueDate;
     private Project project;
     private List<Tags> tags;
     private List<SubTask> subTasks;

@@ -68,7 +68,13 @@ public interface TaskRepository {
     VALUES (#{task.title} ,#{task.description} , #{task.dueDate},#{ePriority},#{task.projectId})
     returning *;
     """)
-    @ResultMap("taskId")
+    @Results(id = "newTaskId" , value = {
+            @Result(property = "taskId" , column = "task_id"),
+            @Result(property = "dueDate" , column =  "due_date"),
+            @Result(property = "project" , column = "project_id",
+                    one = @One(select = "com.example.demospring.taskmanagement.repository.ProjectRepository.getProjectById")
+            ),
+    })
     Tasks createTask(@Param("task") TasksRequest tasksRequest , EPriority ePriority);
 
     @Select("""
@@ -77,12 +83,12 @@ public interface TaskRepository {
     WHERE task_id = #{id}
     returning * ;
     """)
-    @ResultMap("taskId")
+    @ResultMap("newTaskId")
     Tasks updateTask(Long id,@Param("task") TasksRequest tasksRequest , EPriority ePriority);
 
     @Delete("""
     DELETE FROM tasks WHERE task_id = #{id};
     """)
-    @ResultMap("taskId")
+    @ResultMap("newTaskId")
     void deleteTask(Long id);
 }
