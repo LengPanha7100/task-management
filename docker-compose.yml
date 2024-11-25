@@ -19,7 +19,7 @@ services:
       dockerfile: Dockerfile
     restart: always
     ports:
-      - "8085:8080"
+      - "8085:8085"
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://task-management-postgres:5432/task-management_db
       SPRING_DATASOURCE_USERNAME: postgres
