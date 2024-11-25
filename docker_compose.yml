@@ -9,7 +9,7 @@ services:
     volumes:
       - task-management-postgres-data:/var/lib/postgresql/data
     ports:
-      - "5433:5432"
+      - "5445:5432"
     networks:
       - task-management-network
 
@@ -19,7 +19,7 @@ services:
       dockerfile: Dockerfile
     restart: always
     ports:
-      - "8081:8080"
+      - "8085:8080"
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://task-management-postgres:5432/task-management_db
       SPRING_DATASOURCE_USERNAME: postgres
