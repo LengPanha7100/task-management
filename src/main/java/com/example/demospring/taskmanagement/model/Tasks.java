@@ -17,7 +17,6 @@ public class Tasks {
     private String title;
     private String description;
     private EPriority priority;
-    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDateTime dueDate;
     private Project project;
 

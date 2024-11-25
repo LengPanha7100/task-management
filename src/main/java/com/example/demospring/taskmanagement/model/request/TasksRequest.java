@@ -14,7 +14,6 @@ import java.time.LocalDateTime;
 public class TasksRequest {
     private String title;
     private String description;
-    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDateTime dueDate;
     private Long projectId;
 }
