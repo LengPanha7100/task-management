@@ -1,5 +1,6 @@
 package com.example.demospring.taskmanagement.model;
 
+import com.example.demospring.taskmanagement.model.response.TasksResponse;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;

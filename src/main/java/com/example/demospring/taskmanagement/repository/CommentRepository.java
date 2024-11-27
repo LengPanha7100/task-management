@@ -9,7 +9,7 @@ public interface CommentRepository {
     @Results(id = "commentId"  , value = {
             @Result(property = "commentId" , column = "comment_id"),
             @Result(property = "tasks" , column = "task_id",
-            one = @One(select= "com.example.demospring.taskmanagement.repository.TaskRepository.getTaskById")
+            one = @One(select= "com.example.demospring.taskmanagement.repository.TaskRepository.getTaskByIdOne")
             )
     })
     @Select("""

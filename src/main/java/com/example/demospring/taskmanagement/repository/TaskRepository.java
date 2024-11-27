@@ -41,6 +41,14 @@ public interface TaskRepository {
     TasksResponse getTaskById(Long id);
 
     @Select("""
+    SELECT * FROM tasks WHERE task_id = #{id};
+    """)
+    @Result(property = "taskId" , column = "task_id")
+    @Result(property = "dueDate" , column =  "due_date")
+//    @Result(property = "project" , column = "project_id")
+    Tasks getTaskByIdOne(Long id);
+
+    @Select("""
     SELECT t.tag_id,t.name FROM tags t
     JOIN task_tag tt on t.tag_id = tt.tag_id
     WHERE task_id = #{taskId};
